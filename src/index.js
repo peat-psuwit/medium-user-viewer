@@ -2,8 +2,14 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import { createStore } from 'redux';
+
 import App from './App';
+import reducers from './reducers';
+
+import './index.css';
+
+let store = createStore(reducers);
 
 const rootElement = document.getElementById('root');
 
