@@ -11,6 +11,7 @@ let mediumAuth = new ClientOAuth2({
     authorizationUri: 'https://medium.com/m/oauth/authorize',
     accessTokenUri: `${MEDIUM_API_BASE_URL}/tokens`,
     //TODO: better URL detection
+    // eslint-disable-next-line
     redirectUri: `${location.origin}/oauth_callback.html`,
     scopes: ['basicProfile', 'listPublications']
 });
