@@ -11,7 +11,7 @@ type AuthState = {
 };
 
 export default function authReducer(
-    previousState: ?AuthState,
+    previousState: ?AuthState = null,
     action: ActionsType
 ): ?AuthState { // Yes, this reducer can return undefined, because initialisation
                 // can be asynchronous
