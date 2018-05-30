@@ -1,6 +1,6 @@
 // @flow
 
-import mediumAuth from '../utils/mediumAuth';
+import { getAuthorizationURI, getToken } from '../utils/mediumAuth';
 
 import type { StateType } from '../reducers';
 import type { ActionsType } from './';
@@ -34,9 +34,7 @@ export function initiateAuth() {
             return Promise.reject(new Error('User already authenticated.'));
 
         let antiReplayState = Math.random().toString(10);
-        let url = mediumAuth.code.getUri({
-            state: antiReplayState
-        });
+        let url = getAuthorizationURI(antiReplayState);
 
         // eslint-disable-next-line
         open(url, '_blank', 'width=800,height=480');
@@ -54,9 +52,7 @@ export function finishAuth(url: string) {
 
         let { antiReplayState } = auth.pendingAuth;
 
-        return mediumAuth.code.getToken(url, {
-            state: antiReplayState
-        }).then( (token) => {
+        return getToken(url, antiReplayState).then( (token) => {
             dispatch(authUpdatedAction(token));
         }).catch( (err) => {
             console.error(err);
