@@ -7,6 +7,7 @@ import thunk from 'redux-thunk';
 
 import App from './App';
 import reducers from './reducers';
+import registerAuthCodeMessageListener from './utils/registerAuthCodeMessageListener';
 
 import './index.css';
 
@@ -14,6 +15,8 @@ let store = createStore(
     reducers,
     applyMiddleware(thunk)
 );
+
+registerAuthCodeMessageListener(store);
 
 const rootElement = document.getElementById('root');
 
