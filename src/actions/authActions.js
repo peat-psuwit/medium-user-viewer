@@ -45,6 +45,26 @@ export function initiateAuth() {
     };
 }
 
+export function finishAuth(url: string) {
+    return function (dispatch: (ActionsType) => Promise<*>, getState: () => StateType) {
+        let { auth } = getState();
+
+        if (!auth || !auth.pendingAuth)
+            return Promise.reject(new Error('finishAuth: no pending auth.'));
+
+        let { antiReplayState } = auth.pendingAuth;
+
+        return mediumAuth.code.getToken(url, {
+            state: antiReplayState
+        }).then( (token) => {
+            dispatch(authUpdatedAction(token));
+        }).catch( (err) => {
+            console.error(err);
+            dispatch(authFailureAction(err));
+        });
+    }
+}
+
 export type AuthActionsType = $Call<typeof authInitiatedAction, string>
                             | $Call<typeof authUpdatedAction, Object>
                             | $Call<typeof authFailureAction, Error>;
