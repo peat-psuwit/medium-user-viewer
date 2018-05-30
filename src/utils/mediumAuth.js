@@ -13,7 +13,7 @@ let mediumAuth = new ClientOAuth2({
     //TODO: better URL detection
     // eslint-disable-next-line
     redirectUri: `${location.origin}/oauth_callback.html`,
-    scopes: ['basicProfile', 'listPublications']
+    scopes: 'basicProfile,listPublications'
 });
 
 export default mediumAuth;
