@@ -14,3 +14,5 @@ let mediumAuth = new ClientOAuth2({
     redirectUri: `${location.origin}/oauth_callback.html`,
     scopes: ['basicProfile', 'listPublications']
 });
+
+export default mediumAuth;
