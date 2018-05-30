@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Please wait</title>
+  </head>
+
+  <body>
+    Please wait
+
+    <script type="application/javascript">
+        /* 
+         * The sole purpose of this file is to forward authorization code from
+         * Medium's OAuth to the primary page using window.postMessage()
+         */
+
+        let url = location.href;
+        if (window.opener)
+            // Allow same origin only
+            window.opener.postMessage({ type: 'authz_code_received', url }, location.origin);
+        // But if there isn't the openner, there's nothing we can do.
+
+        window.close();
+    </script>
+  </body>
+</html>
