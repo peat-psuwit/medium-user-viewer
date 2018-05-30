@@ -1,9 +1,10 @@
 // @flow
 
+import type { OAuthToken } from '../utils/mediumAuth';
 import type { ActionsType } from '../actions';
 
 type AuthState = {
-    currentToken: ?Object, //client-oauth2's token
+    currentToken: ?OAuthToken,
     pendingAuth?: {
         antiReplayState: string
     },

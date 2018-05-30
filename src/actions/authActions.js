@@ -2,6 +2,7 @@
 
 import { getAuthorizationURI, getToken } from '../utils/mediumAuth';
 
+import type { OAuthToken } from '../utils/mediumAuth';
 import type { StateType } from '../reducers';
 import type { ActionsType } from './';
 
@@ -12,7 +13,7 @@ function authInitiatedAction(antiReplayState: string) {
     };
 }
 
-export function authUpdatedAction(token: Object) {
+export function authUpdatedAction(token: OAuthToken) {
     return {
         type: 'AUTH_UPDATED',
         token
