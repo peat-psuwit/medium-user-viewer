@@ -25,3 +25,11 @@ export function getMe(token: OAuthToken): Promise<UserProfileType> {
         headers: getAuthorizationHeader(token)
     }).then( (response) => response.data.data);
 }
+
+export type PublicationListType = Array<{
+    id: string,
+    name: string,
+    description: string,
+    url: string,
+    imageUrl: string
+}>;
