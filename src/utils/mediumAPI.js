@@ -23,5 +23,5 @@ export type UserProfileType = {
 export function getMe(token: OAuthToken): Promise<UserProfileType> {
     return axios.get(`${MEDIUM_API_BASE_URL}/me`, {
         headers: getAuthorizationHeader(token)
-    }).then( (response) => response.data);
+    }).then( (response) => response.data.data);
 }
