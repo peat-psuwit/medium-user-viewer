@@ -66,6 +66,6 @@ export function logout() {
     return authUpdatedAction(null);
 }
 
-export type AuthActionsType = $Call<typeof authInitiatedAction, string>
-                            | $Call<typeof authUpdatedAction, Object>
-                            | $Call<typeof authFailureAction, Error>;
+export type AuthActionsType = $Call<typeof authInitiatedAction, *>
+                            | $Call<typeof authUpdatedAction, *>
+                            | $Call<typeof authFailureAction, *>;
