@@ -13,6 +13,7 @@ type AuthState = {
 
 export default function authReducer(
     previousState: ?AuthState = null,
+    // $FlowFixMe: All branches are incompatible, but it's union?
     action: ActionsType
 ): ?AuthState { // Yes, this reducer can return undefined, because initialisation
                 // can be asynchronous
