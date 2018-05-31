@@ -13,7 +13,7 @@ function authInitiatedAction(antiReplayState: string) {
     };
 }
 
-export function authUpdatedAction(token: OAuthToken) {
+export function authUpdatedAction(token: ?OAuthToken) {
     return {
         type: 'AUTH_UPDATED',
         token
@@ -60,6 +60,10 @@ export function finishAuth(url: string) {
             dispatch(authFailureAction(err));
         });
     }
+}
+
+export function logout() {
+    return authUpdatedAction(null);
 }
 
 export type AuthActionsType = $Call<typeof authInitiatedAction, string>
