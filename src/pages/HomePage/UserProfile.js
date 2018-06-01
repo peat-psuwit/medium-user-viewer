@@ -17,7 +17,7 @@ export default function UserProfile({ userProfile }: PropsType) {
             <Col sm={{ size: 3 }} className="text-center" >
                 <img className="UserProfile_ProfileImage rounded-circle"
                     src={userProfile.imageUrl}
-                    alt={`Image of ${userProfile.name}`}
+                    alt={`userProfile.name`}
                 />
             </Col>
 
