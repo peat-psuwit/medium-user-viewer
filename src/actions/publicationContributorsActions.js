@@ -64,9 +64,9 @@ export function fetchAllPubContribs() {
         if (!publicationList.data)
             return Promise.reject(new Error('fetchAllPubContribs: publication lisr tunknown'));
 
-        publicationList.data.forEach( (publication) => {
-            dispatch(fetchPubContribs(publication.id));
-        });
+        return Promise.all(
+            publicationList.data.map( (publication) => dispatch(fetchPubContribs(publication.id)) )
+        );
     }
 }
 
