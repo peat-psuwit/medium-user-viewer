@@ -11,9 +11,9 @@ type PropsType = {
 
 export default function PublicationEntry({ publication }: PropsType) {
     return (
-        <Row className="border rounded mt-3">
-            <Col sm={{ size: 3 }} className="text-center" >
-                <img className="UserProfile_ProfileImage rounded-circle"
+        <Row className="border rounded mt-3 pt-2 pb-2">
+            <Col sm={{ size: 3 }} className="text-center">
+                <img className="UserProfile_ProfileImage rounded"
                     src={publication.imageUrl}
                     alt={`Thumbnail of ${publication.name}`}
                 />
