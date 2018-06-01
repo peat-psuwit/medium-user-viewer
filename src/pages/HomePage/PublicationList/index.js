@@ -17,9 +17,12 @@ export default function PublicationList({ isLoading, publicationList }: PropsTyp
 
     return (
         <div>
-            {publicationList.map(
-                (publication) => <PublicationEntry publication={publication} key={publication.id} />
-            )}
+            {
+                publicationList.length > 0 ?
+                    publicationList.map(
+                        (publication) => <PublicationEntry publication={publication} key={publication.id} />
+                    ): <h4 className='text-center'>This user doesn't have any publication</h4>
+            }
         </div>
     );
 }
