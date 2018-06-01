@@ -8,10 +8,14 @@ import type { UserProfileType } from "../../utils/mediumAPI";
 import './UserProfile.css';
 
 type PropsType = {
-    userProfile: UserProfileType
+    isLoading: boolean,
+    userProfile: ?UserProfileType
 };
 
-export default function UserProfile({ userProfile }: PropsType) {
+export default function UserProfile({ isLoading, userProfile }: PropsType) {
+    if (isLoading || !userProfile)
+        return <div>Loading...</div>
+
     return (
         <Row>
             <Col sm={{ size: 3 }} className="text-center" >

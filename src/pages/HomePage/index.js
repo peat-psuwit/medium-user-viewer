@@ -33,13 +33,12 @@ class HomePage extends Component<PropsType> {
     }
 
     render() {
-        if (!this.props.userProfile.data)
-            // TODO: spinner
-            return <div>Loading...</div>
-
         return (
             <div>
-                <UserProfile userProfile={this.props.userProfile.data} />
+                <UserProfile
+                    isLoading={this.props.userProfile.isLoading}
+                    userProfile={this.props.userProfile.data}
+                />
             </div>
         );
     }
