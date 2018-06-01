@@ -24,7 +24,7 @@ export default function UserProfile({ userProfile }: PropsType) {
             <Col sm={{ size: 9 }} >
                 <a href={userProfile.url} target="_blank">
                     <h3>{userProfile.name}</h3>
-                    <span>{userProfile.username}</span>
+                    <span>@{userProfile.username}</span>
                 </a>
             </Col>
         </Row>
