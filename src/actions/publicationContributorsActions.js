@@ -59,8 +59,6 @@ export function fetchAllPubContribs() {
         if (!auth || !auth.currentToken)
             return Promise.reject(new Error('fetchAllPubContribs: not authenticated'));
 
-        const currentToken = auth.currentToken;
-
         if (!publicationList.data)
             return Promise.reject(new Error('fetchAllPubContribs: publication lisr tunknown'));
 
