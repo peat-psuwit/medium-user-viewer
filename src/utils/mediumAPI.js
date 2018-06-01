@@ -33,3 +33,9 @@ export type PublicationListType = Array<{
     url: string,
     imageUrl: string
 }>;
+
+export function getUserPublication(token: OAuthToken, userId: string) {
+    return axios.get(`${MEDIUM_API_BASE_URL}/users/${userId}/publications`, {
+        headers: getAuthorizationHeader(token)
+    }).then( (response) => response.data.data);
+}
