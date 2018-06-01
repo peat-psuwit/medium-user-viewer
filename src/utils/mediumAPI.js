@@ -39,3 +39,9 @@ export function getUserPublication(token: OAuthToken, userId: string) {
         headers: getAuthorizationHeader(token)
     }).then( (response) => response.data.data);
 }
+
+export type PubContribsListType = Array<{
+    publicationId: string,
+    userId: string,
+    role: 'editor' | 'writer'
+}>;
