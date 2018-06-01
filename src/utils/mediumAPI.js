@@ -26,13 +26,15 @@ export function getMe(token: OAuthToken): Promise<UserProfileType> {
     }).then( (response) => response.data.data);
 }
 
-export type PublicationListType = Array<{
+export type PublicationType = {
     id: string,
     name: string,
     description: string,
     url: string,
     imageUrl: string
-}>;
+};
+
+export type PublicationListType = Array<PublicationType>;
 
 export function getUserPublication(token: OAuthToken, userId: string) {
     return axios.get(`${MEDIUM_API_BASE_URL}/users/${userId}/publications`, {
@@ -40,11 +42,13 @@ export function getUserPublication(token: OAuthToken, userId: string) {
     }).then( (response) => response.data.data);
 }
 
-export type PubContribsListType = Array<{
+export type PubContribsType = {
     publicationId: string,
     userId: string,
     role: 'editor' | 'writer'
-}>;
+};
+
+export type PubContribsListType = Array<PubContribsType>;
 
 export function getPubContribs(token: OAuthToken, publicationId: string) {
     return axios.get(`${MEDIUM_API_BASE_URL}/publications/${publicationId}/contributors`, {
