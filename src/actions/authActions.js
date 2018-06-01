@@ -4,7 +4,7 @@ import { getAuthorizationURI, getToken } from '../utils/mediumAuth';
 
 import type { OAuthToken } from '../utils/mediumAuth';
 import type { StateType } from '../reducers';
-import type { ActionsType } from './';
+import type { DispatchableActionsType } from './';
 
 function authInitiatedAction(antiReplayState: string) {
     return {
@@ -28,7 +28,7 @@ function authFailureAction(err: Error) {
 }
 
 export function initiateAuth() {
-    return function (dispatch: (ActionsType) => Promise<*>, getState: () => StateType) {
+    return function (dispatch: (DispatchableActionsType) => Promise<*> => Promise<*>, getState: () => StateType) {
         let { auth } = getState();
 
         if (auth && auth.currentToken)
@@ -45,7 +45,7 @@ export function initiateAuth() {
 }
 
 export function finishAuth(url: string) {
-    return function (dispatch: (ActionsType) => Promise<*>, getState: () => StateType) {
+    return function (dispatch: (DispatchableActionsType) => Promise<*> => Promise<*>, getState: () => StateType) {
         let { auth } = getState();
 
         if (!auth || !auth.pendingAuth)

@@ -3,7 +3,7 @@
 import { getMe } from '../utils/mediumAPI';
 
 import type { StateType } from '../reducers';
-import type { ActionsType } from './';
+import type { DispatchableActionsType } from './';
 import type { UserProfileType } from '../utils/mediumAPI';
 
 function userProfileFetchStarted() {
@@ -27,7 +27,7 @@ function userProfileFetchedFailed(error: Error) {
 }
 
 export function fetchUserProfile() {
-    return function (dispatch: (ActionsType) => Promise<*>, getState: () => StateType) {
+    return function (dispatch: (DispatchableActionsType) => Promise<*> => Promise<*>, getState: () => StateType) {
         const { auth } = getState();
 
         if (!auth || !auth.currentToken)

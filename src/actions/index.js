@@ -12,7 +12,7 @@ import type { PublicationListActionsType } from './publicationListActions';
 import type { PubContribsActionsType } from './publicationContributorsActions';
 
 export function fetchAll() {
-    return function (dispatch: (ActionsType) => Promise<*>, getState: () => StateType) {
+    return function (dispatch: (DispatchableActionsType) => Promise<*> => Promise<*>, getState: () => StateType) {
         return dispatch(fetchUserProfile())
             .then( () => dispatch(fetchPublicationList()))
             .then( () => dispatch(fetchAllPubContribs()))
@@ -23,5 +23,6 @@ export type ActionsType = AuthActionsType
                         | UserProfileActionsType
                         | PublicationListActionsType
                         | PubContribsActionsType
-                        // Thunk
-                        | (dispatch: (ActionsType) => Promise<*>, getState: () => StateType) => Promise<any>;
+
+export type DispatchableActionsType = ActionsType
+    | (dispatch: (DispatchableActionsType) => Promise<*> => Promise<*>, getState: () => StateType) => Promise<any>;

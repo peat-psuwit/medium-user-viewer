@@ -3,7 +3,7 @@
 import { getPubContribs } from '../utils/mediumAPI';
 
 import type { StateType } from '../reducers';
-import type { ActionsType } from './';
+import type { DispatchableActionsType } from './';
 import type { PubContribsListType } from '../utils/mediumAPI';
 
 function pubContribsFetchStarted(publicationId: string) {
@@ -30,7 +30,7 @@ function pubContribsFetchFailed(publicationId: string, error: Error) {
 }
 
 function fetchPubContribs(publicationId) {
-    return function (dispatch: (ActionsType) => Promise<*>, getState: () => StateType) {
+    return function (dispatch: (DispatchableActionsType) => Promise<*> => Promise<*>, getState: () => StateType) {
         const { auth } = getState();
 
         if (!auth || !auth.currentToken)
@@ -53,7 +53,7 @@ function fetchPubContribs(publicationId) {
 }
 
 export function fetchAllPubContribs() {
-    return function (dispatch: (ActionsType) => Promise<*>, getState: () => StateType) {
+    return function (dispatch: (DispatchableActionsType) => Promise<*> => Promise<*>, getState: () => StateType) {
         const { auth, publicationList } = getState();
 
         if (!auth || !auth.currentToken)

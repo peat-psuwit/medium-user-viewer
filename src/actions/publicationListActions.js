@@ -3,7 +3,7 @@
 import { getUserPublication } from '../utils/mediumAPI';
 
 import type { StateType } from '../reducers';
-import type { ActionsType } from './';
+import type { DispatchableActionsType } from './';
 import type { PublicationListType } from '../utils/mediumAPI';
 
 function publicationListFetchStarted() {
@@ -27,7 +27,7 @@ function publicationListFetchedFailed(error: Error) {
 }
 
 export function fetchPublicationList() {
-    return function (dispatch: (ActionsType) => Promise<*>, getState: () => StateType) {
+    return function (dispatch: (DispatchableActionsType) => Promise<*> => Promise<*>, getState: () => StateType) {
         const { auth, userProfile } = getState();
 
         if (!auth || !auth.currentToken)
