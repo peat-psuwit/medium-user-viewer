@@ -4,6 +4,8 @@ import { Container } from 'reactstrap';
 
 import './App.css';
 
+export const LOGIN_PATH = '/login';
+
 class App extends Component {
   render() {
     return (
