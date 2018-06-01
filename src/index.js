@@ -10,6 +10,7 @@ import App from './App';
 import reducers from './reducers';
 import onStoreReady from './onStoreReady';
 
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
 
 let store = createStore(
