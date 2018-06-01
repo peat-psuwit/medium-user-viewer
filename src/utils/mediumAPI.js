@@ -45,3 +45,9 @@ export type PubContribsListType = Array<{
     userId: string,
     role: 'editor' | 'writer'
 }>;
+
+export function getPubContribs(token: OAuthToken, publicationId: string) {
+    return axios.get(`${MEDIUM_API_BASE_URL}/publications/${publicationId}/contributors`, {
+        headers: getAuthorizationHeader(token)
+    }).then( (response) => response.data.data);
+}
