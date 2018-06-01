@@ -9,12 +9,16 @@ import { fetchAll } from '../../actions';
 
 import type { StateType } from '../../reducers';
 
+import getFilteredPublicationList from './getFilteredPublicationList';
+
 import UserProfile from './UserProfile';
+import PublicationList from './PublicationList';
 
 function mapStateToProp(state: StateType) {
     return {
-        userProfile: state.userProfile
-    }
+        userProfile: state.userProfile,
+        filteredPublicationList: getFilteredPublicationList(state)
+    };
 }
 
 const dispatchToPropMap = {
@@ -38,6 +42,12 @@ class HomePage extends Component<PropsType> {
                 <UserProfile
                     isLoading={this.props.userProfile.isLoading}
                     userProfile={this.props.userProfile.data}
+                />
+                <hr />
+                <h4>This user's publication</h4>
+                <PublicationList
+                    isLoading={this.props.filteredPublicationList.isLoading}
+                    publicationList={this.props.filteredPublicationList.data}
                 />
             </div>
         );
