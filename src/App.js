@@ -5,11 +5,11 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { Container } from 'reactstrap';
 import { connect } from 'react-redux';
 
+import PrivateRoute from './utils/PrivateRoute';
 import HomePage from './pages/HomePage';
 import AuthPage from './pages/AuthPage';
 
 import type { StateType } from './reducers';
-import PrivateRoute from './utils/PrivateRoute';
 
 import './App.css';
 
