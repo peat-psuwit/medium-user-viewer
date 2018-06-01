@@ -7,10 +7,14 @@ import type { PublicationListType } from "../../../utils/mediumAPI";
 import PublicationEntry from './PublicationEntry';
 
 type PropsType = {
-    publicationList: PublicationListType
+    isLoading: boolean,
+    publicationList: ?PublicationListType
 };
 
-export default function PublicationList({ publicationList }: PropsType) {
+export default function PublicationList({ isLoading, publicationList }: PropsType) {
+    if (isLoading || !publicationList)
+        return <div>Loading...</div>
+
     return (
         <div>
             {publicationList.map(
