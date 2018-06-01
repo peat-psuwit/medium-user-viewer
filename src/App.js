@@ -29,8 +29,8 @@ class App extends Component<$Call<typeof mapStateToProp, *>> {
 
     return (
       <BrowserRouter>
-        <Container>
-          <h1 className='text-center'>Medium User Viewer</h1>
+        <Container className="mb-5 mt-3">
+          <h1 className='text-center mb-3'>Medium User Viewer</h1>
 
           <Switch>
             <Route path={LOGIN_PATH} component={AuthPage} />
