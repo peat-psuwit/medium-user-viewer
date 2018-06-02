@@ -4,7 +4,10 @@ import axios from 'axios';
 
 import type { OAuthToken } from './mediumAuth';
 
-export const MEDIUM_API_BASE_URL = 'http://localhost:8080/https://api.medium.com/v1';
+export const MEDIUM_API_BASE_URL = 
+    process.env.NODE_ENV === 'prodection' ?
+    'http://localhost:8080/https://api.medium.com/v1'
+    : '/apiProxy/medium/v1';
 
 function getAuthorizationHeader(token: OAuthToken) {
     return {
