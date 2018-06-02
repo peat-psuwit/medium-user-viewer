@@ -5,15 +5,20 @@ import axios from 'axios';
 
 import { MEDIUM_API_BASE_URL } from './mediumAPI';
 
+/* This is the best I can think of to find out this page's public URL.
+ * PUBLIC_URL contains path to the app, excluding hostname.
+ * Can't use location.pathname because it can point to subpages.
+ */
+// eslint-disable-next-line
+const fullPublicUrl = location.origin + (process.env.PUBLIC_URL || '');
+
 const MEDIUM_OAUTH_OPTIONS = {
     clientId: '5926dbeb6185',
     // Insecure, but I treat public clientSecret as equivalent to no secret at all
     clientSecret: 'b20c0e22342fd77f4f5f1a45d12c7d519bf9d677',
     authorizationUri: 'https://medium.com/m/oauth/authorize',
     accessTokenUri: `${MEDIUM_API_BASE_URL}/tokens`,
-    //TODO: better URL detection
-    // eslint-disable-next-line
-    redirectUri: `${location.origin}/oauth_callback.html`,
+    redirectUri: `${fullPublicUrl}/oauth_callback.html`,
     scopes: 'basicProfile,listPublications'
 };
 
