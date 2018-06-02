@@ -28,5 +28,6 @@
   },
   "devDependencies": {
     "cors-anywhere": "^0.4.1"
-  }
+  },
+  "homepage": "https://junk.peat-network.xyz/MediumUserViewer"
 }
