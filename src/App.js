@@ -28,7 +28,7 @@ class App extends Component<$Call<typeof mapStateToProp, *>> {
       return <h1>Loading...</h1>
 
     return (
-      <BrowserRouter>
+      <BrowserRouter basename={process.env.PUBLIC_URL || '/'}>
         <Container className="mb-5 mt-3">
           <h1 className='text-center mb-3'>Medium User Viewer</h1>
 
