@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { Row, Col } from 'reactstrap';
+import Spinner from 'react-spinkit';
 
 import type { UserProfileType } from "../../utils/mediumAPI";
 
@@ -14,7 +15,7 @@ type PropsType = {
 
 export default function UserProfile({ isLoading, userProfile }: PropsType) {
     if (isLoading || !userProfile)
-        return <div>Loading...</div>
+        return <Spinner name='circle' fadeIn='none' />
 
     return (
         <Row>
