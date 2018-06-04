@@ -19,10 +19,10 @@ export function fetchAll() {
     }
 }
 
-export type ActionsType = AuthActionsType
-                        | UserProfileActionsType
+export type ActionsType = UserProfileActionsType
                         | PublicationListActionsType
                         | PubContribsActionsType
+                        | AuthActionsType;
 
 export type DispatchableActionsType = ActionsType
     | (dispatch: (DispatchableActionsType) => Promise<*>, getState: () => StateType) => Promise<any>;
