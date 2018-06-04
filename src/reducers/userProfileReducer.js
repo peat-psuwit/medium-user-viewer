@@ -17,7 +17,6 @@ const defaultState: UserProfileState = {
 
 export default function userProfileReducer(
     previousState: UserProfileState = defaultState,
-    // $FlowFixMe: All branches are incompatible, but it's union?
     action: ActionsType
 ): UserProfileState {
     switch (action.type) {

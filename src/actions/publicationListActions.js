@@ -40,13 +40,10 @@ export function fetchPublicationList() {
 
         const userId = userProfile.data.id;
 
-        // $FlowFixMe: still WTF
         dispatch(publicationListFetchStarted());
         return getUserPublication(currentToken, userId).then( (publicationList) => {
-            // $FlowFixMe: still WTF
             dispatch(publicationListFetchedSuccess(publicationList));
         }).catch( (error) => {
-            // $FlowFixMe: still WTF
             dispatch(publicationListFetchedFailed(error));
         });
     }

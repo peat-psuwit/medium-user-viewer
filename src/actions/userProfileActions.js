@@ -35,13 +35,10 @@ export function fetchUserProfile() {
 
         const currentToken = auth.currentToken;
 
-        // $FlowFixMe: still WTF
         dispatch(userProfileFetchStarted());
         return getMe(currentToken).then( (userProfile) => {
-            // $FlowFixMe: still WTF
             dispatch(userProfileFetchedSuccess(userProfile));
         }).catch( (error) => {
-            // $FlowFixMe: still WTF
             dispatch(userProfileFetchedFailed(error));
         });
     }

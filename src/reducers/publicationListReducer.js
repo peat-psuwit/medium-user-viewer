@@ -17,7 +17,6 @@ const defaultState: PublicationListState = {
 
 export default function publicationListReducer(
     previousState: PublicationListState = defaultState,
-    // $FlowFixMe: All branches are incompatible, but it's union?
     action: ActionsType
 ): PublicationListState {
     switch (action.type) {

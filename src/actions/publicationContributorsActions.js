@@ -38,15 +38,12 @@ function fetchPubContribs(publicationId) {
 
         const currentToken = auth.currentToken;
 
-        // $FlowFixMe: still WTF
         dispatch(pubContribsFetchStarted(publicationId));
 
         return getPubContribs(currentToken, publicationId)
             .then( (pubContribs) => {
-                // $FlowFixMe: still WTF
                 dispatch(pubContribsFetchSuccess(publicationId, pubContribs));
             }, (error) => {
-                // $FlowFixMe: still WTF
                 dispatch(pubContribsFetchFailed(publicationId, error));
             })
     }

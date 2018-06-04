@@ -17,7 +17,6 @@ const defaultSubState = {
 
 function pubContribsSubReducer(
     previousState: PubContribsSubState = defaultSubState,
-    // $FlowFixMe: All branches are incompatible, but it's union?
     action: ActionsType
 ): PubContribsSubState {
     switch (action.type) {
@@ -49,7 +48,7 @@ type PubContribsState = {
 
 export default function pubContribsReducer(
     previousState: PubContribsState = {},
-    // $FlowFixMe: All branches are incompatible, but it's union?
+
     action: ActionsType
 ): PubContribsState {
     switch (action.type) {
