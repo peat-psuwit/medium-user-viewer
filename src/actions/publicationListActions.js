@@ -27,7 +27,7 @@ function publicationListFetchedFailed(error: Error) {
 }
 
 export function fetchPublicationList() {
-    return function (dispatch: (DispatchableActionsType) => Promise<*> => Promise<*>, getState: () => StateType) {
+    return function (dispatch: (DispatchableActionsType) => Promise<*>, getState: () => StateType) {
         const { auth, userProfile } = getState();
 
         if (!auth || !auth.currentToken)

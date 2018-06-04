@@ -12,7 +12,7 @@ import type { PublicationListActionsType } from './publicationListActions';
 import type { PubContribsActionsType } from './publicationContributorsActions';
 
 export function fetchAll() {
-    return function (dispatch: (DispatchableActionsType) => Promise<*> => Promise<*>, getState: () => StateType) {
+    return function (dispatch: (DispatchableActionsType) => Promise<*>, getState: () => StateType) {
         return dispatch(fetchUserProfile())
             .then( () => dispatch(fetchPublicationList()))
             .then( () => dispatch(fetchAllPubContribs()))
@@ -25,4 +25,4 @@ export type ActionsType = AuthActionsType
                         | PubContribsActionsType
 
 export type DispatchableActionsType = ActionsType
-    | (dispatch: (DispatchableActionsType) => Promise<*> => Promise<*>, getState: () => StateType) => Promise<any>;
+    | (dispatch: (DispatchableActionsType) => Promise<*>, getState: () => StateType) => Promise<any>;

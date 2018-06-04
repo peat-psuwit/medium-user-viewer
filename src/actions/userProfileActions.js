@@ -27,7 +27,7 @@ function userProfileFetchedFailed(error: Error) {
 }
 
 export function fetchUserProfile() {
-    return function (dispatch: (DispatchableActionsType) => Promise<*> => Promise<*>, getState: () => StateType) {
+    return function (dispatch: (DispatchableActionsType) => Promise<*>, getState: () => StateType) {
         const { auth } = getState();
 
         if (!auth || !auth.currentToken)
