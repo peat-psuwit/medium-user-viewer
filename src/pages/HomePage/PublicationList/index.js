@@ -1,7 +1,8 @@
 // @flow
 
 import React from 'react';
-import Spinner from 'react-spinkit';
+
+import CenteredSpinner from '../../../utils/CenteredSpinner';
 
 import type { PublicationListType } from "../../../utils/mediumAPI";
 
@@ -14,7 +15,7 @@ type PropsType = {
 
 export default function PublicationList({ isLoading, publicationList }: PropsType) {
     if (isLoading || !publicationList)
-        return <Spinner name='circle' fadeIn='none' />
+        return <CenteredSpinner />
 
     return (
         <div>
