@@ -6,6 +6,7 @@ import { Container } from 'reactstrap';
 import { connect } from 'react-redux';
 
 import PrivateRoute from './utils/PrivateRoute';
+import CenteredSpinner from './utils/CenteredSpinner';
 import HomePage from './pages/HomePage';
 import AuthPage from './pages/AuthPage';
 
@@ -23,23 +24,22 @@ function mapStateToProp(state: StateType) {
 
 class App extends Component<$Call<typeof mapStateToProp, *>> {
   render() {
-    if (!this.props.auth)
-      // TODO: spinner
-      return <h1>Loading...</h1>
-
     return (
       <BrowserRouter basename={process.env.PUBLIC_URL || '/'}>
         <Container className="mb-5 mt-3">
           <h1 className='text-center mb-3'>Medium User Viewer</h1>
 
-          <Switch>
-            <Route path={LOGIN_PATH} component={AuthPage} />
-            <PrivateRoute
-              path='/'
-              component={HomePage}
-              isAuthenticated={this.props.auth.currentToken !== null}
-            />
-          </Switch>
+          {!this.props.auth
+            ? <CenteredSpinner />
+            : <Switch>
+                <Route path={LOGIN_PATH} component={AuthPage} />
+                <PrivateRoute
+                  path='/'
+                  component={HomePage}
+                  isAuthenticated={this.props.auth.currentToken !== null}
+                />
+              </Switch>
+          }
         </Container>
       </BrowserRouter>
     );
