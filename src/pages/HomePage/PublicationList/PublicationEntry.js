@@ -19,7 +19,7 @@ export default function PublicationEntry({ publication }: PropsType) {
                 />
             </Col>
 
-            <Col sm={{ size: 9 }} >
+            <Col sm={{ size: 9 }} className="mt-3 mt-sm-0" >
                 <a href={publication.url} target="_blank">
                     <h4>{publication.name}</h4>
                     <span>{publication.description}</span>

@@ -27,7 +27,7 @@ export default function UserProfile({ isLoading, userProfile }: PropsType) {
                 />
             </Col>
 
-            <Col sm={{ size: 9 }} >
+            <Col sm={{ size: 9 }} className="text-center text-sm-left mt-3 mt-sm-0" >
                 <a href={userProfile.url} target="_blank">
                     <h3>{userProfile.name}</h3>
                     <span>@{userProfile.username}</span>
