@@ -6,22 +6,26 @@ import type { StateType } from '../reducers';
 import type { DispatchableActionsType } from './';
 import type { UserProfileType } from '../utils/mediumAPI';
 
+export const USER_PROFILE_FETCH_STARTED = 'USER_PROFILE_FETCH_STARTED';
+export const USER_PROFILE_FETCH_SUCCESS = 'USER_PROFILE_FETCH_SUCCESS';
+export const USER_PROFILE_FETCH_FAILED = 'USER_PROFILE_FETCH_FAILED';
+
 function userProfileFetchStarted() {
     return {
-        type: 'USER_PROFILE_FETCH_STARTED',
+        type: USER_PROFILE_FETCH_STARTED,
     };
 }
 
 function userProfileFetchedSuccess(data: UserProfileType) {
     return {
-        type: 'USER_PROFILE_FETCH_SUCCESS',
+        type: USER_PROFILE_FETCH_SUCCESS,
         data
     };
 }
 
 function userProfileFetchedFailed(error: Error) {
     return {
-        type: 'USER_PROFILE_FETCH_FAILED',
+        type: USER_PROFILE_FETCH_FAILED,
         error
     };
 }

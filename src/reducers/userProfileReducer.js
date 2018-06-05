@@ -1,5 +1,8 @@
 // @flow
 
+import { USER_PROFILE_FETCH_STARTED,
+         USER_PROFILE_FETCH_SUCCESS,
+         USER_PROFILE_FETCH_FAILED } from '../actions/userProfileActions';
 import { AUTH_UPDATED } from '../actions/authActions';
 
 import type { UserProfileType } from '../utils/mediumAPI';
@@ -22,18 +25,18 @@ export default function userProfileReducer(
     action: ActionsType
 ): UserProfileState {
     switch (action.type) {
-        case 'USER_PROFILE_FETCH_STARTED':
+        case USER_PROFILE_FETCH_STARTED:
             return {
                 ...previousState,
                 isLoading: true
             };
-        case 'USER_PROFILE_FETCH_SUCCESS':
+        case USER_PROFILE_FETCH_SUCCESS:
             return {
                 isLoading: false,
                 data: action.data,
                 error: null
             };
-        case 'USER_PROFILE_FETCH_FAILED':
+        case USER_PROFILE_FETCH_FAILED:
             return {
                 isLoading: false,
                 data: null,
