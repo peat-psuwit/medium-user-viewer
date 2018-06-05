@@ -1,5 +1,9 @@
 // @flow
 
+import { PUB_CONTRIBS_FETCH_STARTED,
+         PUB_CONTRIBS_FETCH_SUCCESS,
+         PUB_CONTRIBS_FETCH_FAILED } from '../actions/publicationContributorsActions';
+
 import type { PubContribsListType } from '../utils/mediumAPI';
 import type { ActionsType } from '../actions';
 
@@ -20,18 +24,18 @@ function pubContribsSubReducer(
     action: ActionsType
 ): PubContribsSubState {
     switch (action.type) {
-        case 'PUB_CONTRIBS_FETCH_STARTED':
+        case PUB_CONTRIBS_FETCH_STARTED:
             return {
                 ...previousState,
                 isLoading: true
             };
-        case 'PUB_CONTRIBS_FETCH_SUCCESS':
+        case PUB_CONTRIBS_FETCH_SUCCESS:
             return {
                 isLoading: false,
                 data: action.data,
                 error: null
             };
-        case 'PUB_CONTRIBS_FETCH_FAILED':
+        case PUB_CONTRIBS_FETCH_FAILED:
             return {
                 isLoading: false,
                 data: null,

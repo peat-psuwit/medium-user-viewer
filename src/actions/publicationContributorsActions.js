@@ -6,16 +6,20 @@ import type { StateType } from '../reducers';
 import type { DispatchableActionsType } from './';
 import type { PubContribsListType } from '../utils/mediumAPI';
 
+export const PUB_CONTRIBS_FETCH_STARTED = 'PUB_CONTRIBS_FETCH_STARTED';
+export const PUB_CONTRIBS_FETCH_SUCCESS = 'PUB_CONTRIBS_FETCH_SUCCESS';
+export const PUB_CONTRIBS_FETCH_FAILED = 'PUB_CONTRIBS_FETCH_FAILED';
+
 function pubContribsFetchStarted(publicationId: string) {
     return {
-        type: 'PUB_CONTRIBS_FETCH_STARTED',
+        type: PUB_CONTRIBS_FETCH_STARTED,
         publicationId
     };
 }
 
 function pubContribsFetchSuccess(publicationId: string, data: PubContribsListType) {
     return {
-        type: 'PUB_CONTRIBS_FETCH_SUCCESS',
+        type: PUB_CONTRIBS_FETCH_SUCCESS,
         publicationId,
         data
     };
@@ -23,7 +27,7 @@ function pubContribsFetchSuccess(publicationId: string, data: PubContribsListTyp
 
 function pubContribsFetchFailed(publicationId: string, error: Error) {
     return {
-        type: 'PUB_CONTRIBS_FETCH_FAILED',
+        type: PUB_CONTRIBS_FETCH_FAILED,
         publicationId,
         error
     };
