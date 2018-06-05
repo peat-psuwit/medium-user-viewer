@@ -6,22 +6,26 @@ import type { StateType } from '../reducers';
 import type { DispatchableActionsType } from './';
 import type { PublicationListType } from '../utils/mediumAPI';
 
+export const PUBLICATION_LIST_FETCH_STARTED = 'PUBLICATION_LIST_FETCH_STARTED';
+export const PUBLICATION_LIST_FETCH_SUCCESS = 'PUBLICATION_LIST_FETCH_SUCCESS';
+export const PUBLICATION_LIST_FETCH_FAILED = 'PUBLICATION_LIST_FETCH_FAILED';
+
 function publicationListFetchStarted() {
     return {
-        type: 'PUBLICATION_LIST_FETCH_STARTED',
+        type: PUBLICATION_LIST_FETCH_STARTED,
     };
 }
 
 function publicationListFetchedSuccess(data: PublicationListType) {
     return {
-        type: 'PUBLICATION_LIST_FETCH_SUCCESS',
+        type: PUBLICATION_LIST_FETCH_SUCCESS,
         data
     };
 }
 
 function publicationListFetchedFailed(error: Error) {
     return {
-        type: 'PUBLICATION_LIST_FETCH_FAILED',
+        type: PUBLICATION_LIST_FETCH_FAILED,
         error
     };
 }

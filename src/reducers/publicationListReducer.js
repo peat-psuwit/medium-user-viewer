@@ -1,5 +1,8 @@
 // @flow
 
+import { PUBLICATION_LIST_FETCH_STARTED,
+         PUBLICATION_LIST_FETCH_SUCCESS,
+         PUBLICATION_LIST_FETCH_FAILED } from '../actions/publicationListActions';
 import { AUTH_UPDATED } from '../actions/authActions';
 
 import type { PublicationListType } from '../utils/mediumAPI';
@@ -22,18 +25,18 @@ export default function publicationListReducer(
     action: ActionsType
 ): PublicationListState {
     switch (action.type) {
-        case 'PUBLICATION_LIST_FETCH_STARTED':
+        case PUBLICATION_LIST_FETCH_STARTED:
             return {
                 ...previousState,
                 isLoading: true
             };
-        case 'PUBLICATION_LIST_FETCH_SUCCESS':
+        case PUBLICATION_LIST_FETCH_SUCCESS:
             return {
                 isLoading: false,
                 data: action.data,
                 error: null
             };
-        case 'PUBLICATION_LIST_FETCH_FAILED':
+        case PUBLICATION_LIST_FETCH_FAILED:
             return {
                 isLoading: false,
                 data: null,
