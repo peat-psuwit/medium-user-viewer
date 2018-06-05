@@ -23,7 +23,7 @@ export default function UserProfile({ isLoading, userProfile }: PropsType) {
             <Col sm={{ size: 3 }} className="text-center" >
                 <img className="UserProfile_ProfileImage rounded-circle"
                     src={userProfile.imageUrl}
-                    alt={`userProfile.name`}
+                    alt={userProfile.name}
                 />
             </Col>
 
