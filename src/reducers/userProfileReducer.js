@@ -1,5 +1,7 @@
 // @flow
 
+import { AUTH_UPDATED } from '../actions/authActions';
+
 import type { UserProfileType } from '../utils/mediumAPI';
 import type { ActionsType } from '../actions';
 
@@ -37,6 +39,14 @@ export default function userProfileReducer(
                 data: null,
                 error: action.error
             };
+
+        case AUTH_UPDATED:
+            // If user logged out, this user profile isn't correct anymore
+            if (!action.token)
+                return defaultState;
+            else
+                return previousState;
+
         default:
             return previousState;
     }
