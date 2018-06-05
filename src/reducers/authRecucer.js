@@ -1,5 +1,9 @@
 // @flow
 
+import { AUTH_INITIATED,
+         AUTH_UPDATED,
+         AUTH_FAILURE } from '../actions/authActions';
+
 import type { OAuthToken } from '../utils/mediumAuth';
 import type { ActionsType } from '../actions';
 
@@ -17,7 +21,7 @@ export default function authReducer(
 ): ?AuthState { // Yes, this reducer can return undefined, because initialisation
                 // can be asynchronous
     switch (action.type) {
-        case 'AUTH_INITIATED':
+        case AUTH_INITIATED:
             return {
                 currentToken: previousState? previousState.currentToken : null,
                 pendingAuth: {
@@ -25,12 +29,12 @@ export default function authReducer(
                 }
             };
 
-        case 'AUTH_UPDATED':
+        case AUTH_UPDATED:
             return {
                 currentToken: action.token
             };
 
-        case 'AUTH_FAILURE':
+        case AUTH_FAILURE:
             return {
                 currentToken: previousState? previousState.currentToken : null,
                 authFailure: action.err

@@ -6,23 +6,27 @@ import type { OAuthToken } from '../utils/mediumAuth';
 import type { StateType } from '../reducers';
 import type { DispatchableActionsType } from './';
 
+export const AUTH_INITIATED = 'AUTH_INITIATED';
+export const AUTH_UPDATED = 'AUTH_UPDATED';
+export const AUTH_FAILURE = 'AUTH_FAILURE';
+
 function authInitiatedAction(antiReplayState: string) {
     return {
-        type: 'AUTH_INITIATED',
+        type: AUTH_INITIATED,
         antiReplayState
     };
 }
 
 export function authUpdatedAction(token: ?OAuthToken) {
     return {
-        type: 'AUTH_UPDATED',
+        type: AUTH_UPDATED,
         token
     };
 }
 
 function authFailureAction(err: Error) {
     return {
-        type: 'AUTH_FAILURE',
+        type: AUTH_FAILURE,
         err
     };
 }
