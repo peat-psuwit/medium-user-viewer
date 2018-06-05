@@ -7,6 +7,7 @@ import { connect } from 'react-redux';
 
 import PrivateRoute from './utils/PrivateRoute';
 import CenteredSpinner from './utils/CenteredSpinner';
+import NavHeader from './component/NavHeader';
 import HomePage from './pages/HomePage';
 import AuthPage from './pages/AuthPage';
 
@@ -27,7 +28,7 @@ class App extends Component<$Call<typeof mapStateToProp, *>> {
     return (
       <BrowserRouter basename={process.env.PUBLIC_URL || '/'}>
         <Container className="mb-5 mt-3">
-          <h1 className='text-center mb-3'>Medium User Viewer</h1>
+          <NavHeader />
 
           {!this.props.auth
             ? <CenteredSpinner />
