@@ -56,9 +56,9 @@ export default function pubContribsReducer(
     action: ActionsType
 ): PubContribsState {
     switch (action.type) {
-        case 'PUB_CONTRIBS_FETCH_STARTED':
-        case 'PUB_CONTRIBS_FETCH_SUCCESS':
-        case 'PUB_CONTRIBS_FETCH_FAILED':
+        case PUB_CONTRIBS_FETCH_STARTED:
+        case PUB_CONTRIBS_FETCH_SUCCESS:
+        case PUB_CONTRIBS_FETCH_FAILED:
             return {
                 ...previousState,
                 [action.publicationId]: pubContribsSubReducer(
